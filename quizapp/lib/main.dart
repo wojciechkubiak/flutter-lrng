@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
+import './question.dart';
+
 void main() => runApp(QuizApp());
 
 class QuizApp extends StatefulWidget {
-  
   @override
   State<StatefulWidget> createState() {
     return QuizAppState();
@@ -11,13 +12,13 @@ class QuizApp extends StatefulWidget {
 }
 
 class QuizAppState extends State<QuizApp> {
-  var qIndex = 0;
-  
+  var _qIndex = 0;
+
   void answerQuestion() {
     setState(() {
-      qIndex++;
+      _qIndex++;
     });
-    print(qIndex);
+    print(_qIndex);
   }
 
   @override
@@ -34,7 +35,9 @@ class QuizAppState extends State<QuizApp> {
         ),
         body: Column(
           children: [
-            Text(questions[qIndex]),
+            Question(
+              questions[_qIndex],
+            ),
             RaisedButton(
               child: Text('Answer 1'),
               onPressed: () => answerQuestion(),
@@ -52,4 +55,4 @@ class QuizAppState extends State<QuizApp> {
       ),
     );
   }
-}  
+}
