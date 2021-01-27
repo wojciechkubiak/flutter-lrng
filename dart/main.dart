@@ -5,12 +5,16 @@ class Person {
   void greet() {
     print('Hi, I\'m ' + name + ' and I\'m ' + age.toString() + 'years old');
   }
+
+  Person.veryOld(this.name) {
+    age = 60;
+  }
 }
 
 class Animal {
   String race;
   String gender;
-  int age;  
+  int age;
 
 // Curly braces makes arguments optional
   // Animal({String inputRace, String inputGender, int age}) {
@@ -37,14 +41,38 @@ void main() {
   print(sum2 + 1);
 
 // Classes
-  var p1 = Person();
+  var p1 = Person.veryOld('Wojtek');
   p1.greet();
   p1.name = 'Andrew';
   p1.age = 34;
   p1.greet();
 
   // var a1 = Animal(inputRace: 'Cat', inputGender: 'Female', age: 12);
- 
+
   var a1 = Animal('Cat', 'Female', 12);
   print(a1.race);
+
+  // if-else
+
+  var isLoggedIn = false;
+  var userName = 'Wojtek';
+  var password = 'test';
+  var age = 26;
+  var hasCorrectCredentials = userName == 'Wojtek' && password == 'test';
+
+  if (userName == 'Wojtek' && password == 'test' || age > 20) {
+    print('Logged in');
+  } else if (isLoggedIn) {
+    print('Overruled!');
+  } else {
+    print('Failed');
+  }
+
+  // null
+  var userName = null;
+
+  // userName = 20 // cant assign to variable of type null
+  if (userName != null) {
+    print('Username exists');
+  }
 }
