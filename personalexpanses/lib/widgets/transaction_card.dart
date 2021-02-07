@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class TransactionCard extends StatelessWidget {
   final String title;
@@ -24,7 +25,7 @@ class TransactionCard extends StatelessWidget {
                 ),
                 padding: EdgeInsets.all(15),
                 child: Text(
-                  amount.toString(),
+                  '\$$amount',
                   style: TextStyle(
                       color: Colors.black54,
                       fontWeight: FontWeight.bold,
@@ -44,7 +45,7 @@ class TransactionCard extends StatelessWidget {
                   padding: EdgeInsets.only(top: 5, right: 5, bottom: 5),
                 ),
                 Container(
-                  child: Text(date.toString(),
+                  child: Text(DateFormat.yMMMd().format(date),
                       style: TextStyle(fontSize: 14, color: Colors.black54)),
                   padding: EdgeInsets.only(top: 5, right: 5, bottom: 5),
                 )
